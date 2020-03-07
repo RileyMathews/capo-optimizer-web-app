@@ -1,0 +1,12 @@
+version: '3.7'
+services: 
+  dev:
+    build: 
+      context: .
+      dockerfile: ./.docker/dev/dockerfile
+    tty: true
+    stdin_open: true
+    volumes: 
+      - .:/app:delegated
+    ports: 
+      - 3000:3000
