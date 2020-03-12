@@ -1,0 +1,11 @@
+FROM node:latest
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install && \
+    rm -rf aws awscliv2.zip
+
+WORKDIR /app
+COPY . .
+RUN npm install &&\
+    npm run build
+CMD [ "aws", "s3",  "cp", "./build/", "s3://capo-optimizer.rileymathews.com/", "--recursive" ]
