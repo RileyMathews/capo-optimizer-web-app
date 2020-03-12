@@ -8,4 +8,4 @@ WORKDIR /app
 COPY . .
 RUN npm install &&\
     npm run build
-CMD [ "aws", "s3",  "cp", "./build/", "s3://capo-optimizer.rileymathews.com/", "--recursive" ]
+CMD [ "aws", "s3",  "cp", "./build/", "s3://capo-optimizer.rileymathews.com/", "--recursive", "--acl", "public-read" ]
