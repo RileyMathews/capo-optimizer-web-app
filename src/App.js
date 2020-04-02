@@ -38,7 +38,7 @@ class App extends React.Component {
 
   optimize = () => {
     const notes = this.state.active.join(",")
-    fetch(`https://service.rileymathews.com/capo-optimizer/optimize?keys=${notes}`, {
+    fetch(`https://apigateway.rileymathews.com/capo-optimizer?keys=${notes}`, {
       headers: {
         'Content-Type': 'application/json',
       },
